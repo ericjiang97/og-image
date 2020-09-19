@@ -22,10 +22,11 @@ function getCss(theme: string, fontSize: string) {
   let radial = "lightgray";
 
   if (theme === "dark") {
-    background = "#145DA0";
+    background = "#0a2f50";
     foreground = "white";
     radial = "dimgray";
   }
+
   return `
     @font-face {
         font-family: 'Inter';
@@ -46,7 +47,7 @@ function getCss(theme: string, fontSize: string) {
         font-style: normal;
         font-weight: normal;
         src: url(data:font/woff2;charset=utf-8;base64,${mono})  format("woff2");
-      }
+    }
 
     body {
         background: ${background};
