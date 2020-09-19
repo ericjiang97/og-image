@@ -1,5 +1,5 @@
 {
-  "regions": ["all"],
+  "regions": ["syd1"],
   "functions": {
     "api/**": {
       "memory": 1024
