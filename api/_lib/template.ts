@@ -75,12 +75,11 @@ function getCss(theme: string, fontSize: string) {
         display: flex;
         align-items: center;
         align-content: center;
-        justify-content: center;
+        justify-content: flex-start;
         justify-items: center;
     }
 
     .logo {
-        margin: 0 75px;
         border-radius: 100%;
     }
 
@@ -107,7 +106,25 @@ function getCss(theme: string, fontSize: string) {
         font-style: normal;
         color: ${foreground};
         line-height: 1.8;
-    }`;
+        align-items: flex-start;
+        text-align: left;
+    }
+    
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .main {
+      display: flex;
+      flex-direction: column;
+      align-items: space-between;
+      min-height: 50%;
+    }
+    
+    `;
 }
 
 export function getHtml(parsedReq: ParsedRequest) {
@@ -121,22 +138,18 @@ export function getHtml(parsedReq: ParsedRequest) {
         ${getCss(theme, fontSize)}
     </style>
     <body>
-        <div>
-            <div class="spacer">
-            <div class="logo-wrapper">
-                ${images
-                  .map(
-                    (img, i) =>
-                      getPlusSign(i) + getImage(img, widths[i], heights[i])
-                  )
-                  .join("")}
-            </div>
-            <div class="spacer">
-            <div class="heading">${emojify(
-              md ? marked(text) : sanitizeHtml(text)
-            )}
-            </div>
+      <div class="main">
+        <div class="logo-wrapper">
+            ${images
+              .map(
+                (img, i) =>
+                  getPlusSign(i) + getImage(img, widths[i], heights[i])
+              )
+              .join("")}
         </div>
+        <div class="heading">${emojify(md ? marked(text) : sanitizeHtml(text))}
+        </div>
+      </div>
     </body>
 </html>`;
 }
