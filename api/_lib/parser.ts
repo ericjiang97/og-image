@@ -30,7 +30,7 @@ export function parseRequest(req: IncomingMessage) {
     fileType: extension === "jpeg" ? extension : "png",
     text: decodeURIComponent(text),
     theme: theme === "dark" ? "dark" : "light",
-    md: md === "1" || md === "true",
+    md: true,
     fontSize: fontSize || "96px",
     images: getArray(images),
     widths: getArray(widths),
