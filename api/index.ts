@@ -26,6 +26,7 @@ export default async function handler(
   }
   const body = await pageInfo.text();
   let title = body.split("<title>")[1].split("</title>")[0];
+  console.log(title);
   title = title.replace(" - Eric Jiang", "");
   title += " **by Eric Jiang**";
   req.url = `/${title}${query ? `?${query}` : "?"}&md=1`;
