@@ -116,12 +116,13 @@ function getCss(theme: string, fontSize: string) {
       align-items: center;
       justify-content: center;
     }
-    
+
     .main {
       display: flex;
       flex-direction: column;
       align-items: space-between;
       min-height: 50%;
+      max-width: 1200px;
     }
     
     `;
